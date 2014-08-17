@@ -1,0 +1,55 @@
+/**
+ * 登录界面样式
+ * waylau.com 2014-8-17   
+ */
+body {
+    text-align: center;
+    margin: 0;
+}
+img {
+    width:100% ;height:100%;position:absolute;top:0;left:0;right:100;bottom:500;z-index:-1 ;
+}
+
+h1   {
+    color: white;
+    font-family:'SimHei' ;
+}
+
+a {
+    color: wheat;
+    text-decoration:none;
+}
+a:hover {
+    color: rosybrown;
+    text-decoration:underline;
+}
+#login_id {
+    width:600px;
+    height:250px;
+    margin: 0 auto;
+    margin-top: 150px;;
+}
+
+#login_form {
+    vertical-align: middle;
+    margin-top: 60px;;
+}
+#login_form input {
+    border: 0;
+    BACKGROUND-COLOR: transparent;
+    BORDER-BOTTOM: #ffffff 1px solid;
+    BORDER-LEFT: #ffffff 1px solid;
+    COLOR: #ffffff;
+    HEIGHT: 18px;
+    font-size: 12pt
+}
+#login_form .loginbtn {
+    BORDER-RIGHT: #ffffff 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    height: 20px;
+}
+
+#buttom_id {
+    color: wheat; height:50px; position:absolute; bottom:0; width:100%;
+    font-size: 8pt
+}
