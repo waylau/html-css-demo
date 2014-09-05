@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>无标题文档</title>
+    <style type="text/css">
+
+        #demo
+        {
+            overflow: hidden;
+            width: 220px;
+            float: left;
+            display: inline;
+        }
+        #demo ul
+        {
+            text-align: left;
+            margin: 0px;
+            padding: 0px;
+            width: 220px;
+        }
+        #demo ul li
+        {
+            margin-left: 5px;
+            display: block;
+            list-style: none;
+            font-size: 13px;
+            height: 26px;
+            padding-top: 5px;
+        }
+       </style>
+</head>
+<body>
+//这里的高度 style="height: 26px如果不确定的话，需要自定义输入，要不然如果定义高了而ul里的li没达到此高度会造成无法滚动
+<div id="demo" style="height: 26px;">
+    <div id="demo1">
+        <ul>
+            <li>·<a href="http://www.2cto.com/">时代前端1</a></li>
+            <li>·<a href="http://www.2cto.com">时代前端2</a></li>
+            <li>·<a href="http://www.2cto.com//">时代前端3</a></li>
+            <li>·<a href="http://www.2cto.com//">时代前端4</a></li>
+            <li>·<a href="http://www.2cto.com/">时代前端51</a></li>
+            <li>·<a href="http://www.2cto.com">时代前端6</a></li>
+            <li>·<a href="http://www.2cto.com//">时代前端7</a></li>
+            <li>·<a href="http://www.2cto.com//">时代前端8</a></li>
+            <li>·<a href="http://www.2cto.com/">时代前端9</a></li>
+            <li>·<a href="http://www.2cto.com">时代前端10</a></li>
+            <li>·<a href="http://www.2cto.com//">时代前端11</a></li>
+            <li>·<a href="http://www.2cto.com//">时代前端12</a></li>
+        </ul>
+    </div>
+    <div id="demo2">
+    </div>
+
+    <script type="text/javascript">
+        //文字无间断滚动代码，兼容IE、Firefox、Opera
+        var speed=60;
+        var FGDemo=document.getElementById('demo');
+        var FGDemo1=document.getElementById('demo1');
+        var FGDemo2=document.getElementById('demo2');
+        FGDemo2.innerHTML=FGDemo1.innerHTML
+        function Marquee1(){
+            if(FGDemo2.offsetHeight-FGDemo.scrollTop<=0)
+                FGDemo.scrollTop-=FGDemo1.offsetHeight
+            else{
+                FGDemo.scrollTop++
+            }
+        }
+
+        var MyMar1=setInterval(Marquee1,speed)
+        FGDemo.onmouseover=function() {clearInterval(MyMar1)}
+        FGDemo.onmouseout=function() {MyMar1=setInterval(Marquee1,speed)}
+    </script>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>带链接文本循环向上的公告栏</title>
+    <style type="text/css">
+        #marqueecontainer{
+            position: relative;
+            width: 200px; /*marquee width */
+            height: 400px; /*marquee height */
+            background-color: white;
+            overflow: hidden;
+            border: 3px solid orange;
+            padding: 2px;
+            padding-left: 4px;
+        }
+    </style>
+    <script type="text/javascript">
+        var delayb4scroll = 2000; //开始延迟滚动时间(2000=2 seconds)
+        var marqueespeed = 1; // 滚动速度 (larger is faster 1-10)
+        var pauseit = 1 ; //鼠标上移，是否暂停 (0=no. 1=yes)?
+        var copyspeed = marqueespeed ;
+        var pausespeed = (pauseit==0)? copyspeed: 0 ;
+        var actualheight='' ;
+
+        function scrollmarquee(){
+            if (parseInt(cross_marquee.style.top)>(actualheight*(-1)+8))
+                cross_marquee.style.top=parseInt(cross_marquee.style.top)-copyspeed+"px";
+            else
+                cross_marquee.style.top=parseInt(marqueeheight)+8+"px";
+        }
+        function initializemarquee(){
+            cross_marquee=document.getElementById("vmarquee");
+            cross_marquee.style.top=0;
+            marqueeheight=document.getElementById("marqueecontainer").offsetHeight;
+            actualheight=cross_marquee.offsetHeight;
+            if (window.opera || navigator.userAgent.indexOf("Netscape/7")!=-1){ // 兼容性判断 如果是 Opera or Netscape 7x, 添加 scrollbars
+                cross_marquee.style.height=marqueeheight+"px";
+                cross_marquee.style.overflow="scroll";
+                return
+            }
+            setTimeout('lefttime=setInterval("scrollmarquee()",30)', delayb4scroll)
+        }
+        if (window.addEventListener)
+            window.addEventListener("load", initializemarquee, false);
+        else if (window.attachEvent)
+            window.attachEvent("onload", initializemarquee);
+        else if (document.getElementById)
+            window.onload=initializemarquee ;
+    </script>
+</head>
+<body>
+<div id="marqueecontainer" onMouseover="copyspeed=pausespeed" onMouseout="copyspeed=marqueespeed">
+    <div id="vmarquee" style="position: absolute; width: 98%;">
+        <p style="margin-top: 0"><b><a href="">零度对策</a></b><br>
+            The Dynamic Content category has just been branched out with a new
+            <a href="">网站优化</a>
+            to better organize its scripts.</p>
+        <p><b><a href="">Gradient Image Maker</a></b><br>
+            We're excited to introduce our latest web tool- Gradient Image Maker!</p>
+        <p><b><a href="/">DD Help Forum</a></b><br>
+            Check out our new forums for help on our scripts and coding in general.</p>
+        <p align="left"><b><a href="">Terms of
+            Usage update</a></b><br>
+            本站声明，本博部分资源来自互联网，若侵犯你的权利，请在本站留言，本博将及时处理。 </p>
+    </div>
+</div>
+</body>
+</html>

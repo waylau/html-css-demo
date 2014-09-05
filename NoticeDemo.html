@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="gb2312">
+<head>
+    <meta charset="UTF-8">
+    <title>两行间歇向上滚动的新闻公告文字JS代码</title>
+</head>
+<style type="text/css">
+    #rollText{font:12px /20px verdana;}
+</style><div id="rollAD" style="height:40px; position:relative; overflow:hidden;">
+    <div id="rollText" style="font-size:12px; line-height:20px;">
+        <a href="/" title="">◇ 安理会改革拟新增七理事国</a><br />
+        <a href="/" title="">◇ 国务院领导工作分工确定</a><br />
+        <a href="/" title="">◇ 安理会改革拟新增七理事国</a><br />
+        <a href="/" title="">◇ 国务院领导工作分工确定</a><br />
+        <a href="/" title="">◇ 安理会改革拟新增七理事国</a><br />
+        <a href="/" title="">◇ 国务院领导工作分工确定</a><br />
+        <a href="/" title="">◇ 国务院领导工作分工确定</a><br />
+    </div>
+</div>
+<script type="text/javascript">
+    // <![CDATA[
+    var textDiv = document.getElementById("rollText");
+    var textList = textDiv.getElementsByTagName("a");
+    if(textList.length > 2){
+        var textDat = textDiv.innerHTML;
+        var br = textDat.toLowerCase().indexOf("<br",textDat.toLowerCase().indexOf("<br")+3);
+//var textUp2 = textDat.substr(0,br);
+        textDiv.innerHTML = textDat+textDat+textDat.substr(0,br);
+        textDiv.style.cssText = "position:absolute; top:0";
+        var textDatH = textDiv.offsetHeight;MaxRoll();
+    }
+    var minTime,maxTime,divTop,newTop=0;
+    function MinRoll(){
+        newTop++;
+        if(newTop<=divTop+40){
+            textDiv.style.top = "-" + newTop + "px";
+        }else{
+            clearInterval(minTime);
+            maxTime = setTimeout(MaxRoll,5000);
+        }
+    }
+    function MaxRoll(){
+        divTop = Math.abs(parseInt(textDiv.style.top));
+        if(divTop>=0 && divTop<textDatH-40){
+            minTime = setInterval(MinRoll,1);
+        }else{
+            textDiv.style.top = 0;divTop = 0;newTop=0;MaxRoll();
+        }
+    }
+    // ]]>
+</script >
+</html>

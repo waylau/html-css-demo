@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+</head>
+
+<body>
+<div id="demo" style="overflow:hidden;height:180px;width:200px;">
+    <div id="demo1" valign="top">
+        <ul>
+            <li>文字信息文字信息文字信息文字信息1</li>
+            <li>文字信息文字信息文字信息文字信息2</li>
+            <li>文字信息文字信息文字信息文字信息3</li>
+            <li>文字信息文字信息文字信息文字信息41</li>
+            <li>文字信息文字信息文字信息文字信息5</li>
+            <li>文字信息文字信息文字信息文字信息6</li>
+            <li>文字信息文字信息文字信息文字信息7</li>
+            <li>文字信息文字信息文字信息文字信息8</li>
+        </ul>
+    </div>
+    <div id="demo2" valign="top"></div>
+</div>
+<script>
+    var speed = 15;
+    var demo = document.getElementById("demo");
+    var demo1 = document.getElementById("demo1");
+    var demo2 = document.getElementById("demo2");
+    demo2.innerHTML=demo1.innerHTML//克隆demo1为demo2
+    function Marquee(){
+        if(demo2.offsetHeight-demo.scrollTop<=0)//当滚动至demo1与demo2交界时
+            demo.scrollTop-=demo1.offsetHeight//demo跳到最顶
+        else{
+            demo.scrollTop++ //如果是横向的 将 所有的 height top 改成 width left
+        }
+    }
+    var MyMar=setInterval(Marquee,speed)//设置定时
+    demo.onmouseover=function() {clearInterval(MyMar)}//鼠标移上时清除定时器达到滚动停止的目的
+    demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)}//鼠标移开时重设定时
+</script>
+</body>
+</html>

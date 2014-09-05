@@ -1,0 +1,46 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>广告文字</title>
+</head>
+<body bgcolor="#fef4d9" onLoad="play_rt()">
+<SCRIPT LANGUAGE="JavaScript">
+    m = new Array()
+    m[0] = "这个例子还不错吧！"
+    m[1] = "你喜欢吗？"
+    m[2] = "这个可以放在公告栏中使用的！"
+    m[3]="我喜欢这种效果！"
+    m[4]="本站站名：源码爱好者"
+    m[5] = "请多提意见！"
+    m[6] = "如有问题！欢迎留言！"
+    m[7] = "欢迎你的再次光临！"
+    bagcolor = new Array()
+    bagcolor[0] = "#CCCCCC"
+    bagcolor[1] = "#FFFF66"
+    bagcolor[2] = "#CCFFFF"
+    bagcolor[3] = "#AAEEFF"
+    bagcolor[4] = "#CCFF88"
+    bagcolor[5] = "#FF9933"
+    bagcolor[6] = "#99AAFF"
+    bagcolor[7] = "#6699FF"
+    var i=0;
+    function Ran(R) {
+        return Math.floor((R+1)*Math.random())
+    }
+    function play_rt()
+    {
+        rt1.style.filter="revealTrans(Duration=1.5,Transition=" + Ran(22) + ")";
+        rt1.filters.revealTrans.apply();
+        rt1.style.background=bagcolor[Ran(7)];
+        rt1.innerHTML=m[Ran(6)];
+        rt1.filters.revealTrans.play();
+        timer = setTimeout("play_rt()",3000)
+    }
+</SCRIPT>
+<TABLE WIDTH="358" BORDER="1" HEIGHT="70">
+    <TR ALIGN="CENTER">
+        <TD id="rt1" HEIGHT="82"></TD>
+    </TR>
+</TABLE>
+</body>
+</html>

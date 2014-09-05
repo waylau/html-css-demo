@@ -5,7 +5,9 @@
 .container {
 
     height: 140px;
-    width:750px;
+    width:100%;
+    TEXT-ALIGN: center;
+    margin:auto;
 }
 .bgblue {
     width: 80px;
@@ -17,7 +19,7 @@
     color:#fff;
     float: left;
     padding: 20px;
-    margin-left: 20px;
+    margin-left:auto;margin-right:auto;
     border:4px solid;
     border-radius:55px;
 }
