@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>HTML 遮罩显示工具栏</title>
+    <link rel="stylesheet" type="text/css" href="css/MaskDisplay.css">
+</head>
+<body>
+
+
+    <div id="photo_id" class="photo_contarner" onmouseover="handlerIn( event )" onmouseout="handlerOut( event )">
+        <a href="javascript:void(0);" onclick="alert('我是底图');" >
+            <img  src="img/wl_white.png"  />
+            <div class="toolbar" name="toolbar" id="toolbar">
+                <a href="javascript:void(0);" class="toolbar_edit" onclick="alert('编辑一把');"  >
+                </a>
+                <a href="javascript:void(0);" class="toolbar_delete" onclick="alert('删了吧');" >
+                </a>
+            </div>
+        </a>
+    </div>
+
+    <div id="buttom_id">
+        更多示例访问：<a href="http://wwww.waylau.com" target="_blank">http://wwww.waylau.com</a>
+    </div>
+    <script src="js/MaskDisplay.js"></script>
+
+</body>
+</html>

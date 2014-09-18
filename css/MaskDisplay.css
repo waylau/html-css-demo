@@ -1,0 +1,35 @@
+/**
+* 照片管理样式
+* waylau.com 2014-9-11
+*/
+
+.photo_contarner {
+    width: 128px;height: 128px;
+    margin: 20px;
+    float: left;
+    position:relative;
+}
+
+.photo_contarner img{
+    width: 128px;height: 128px;
+    border: 0
+}
+.toolbar {
+    position:absolute;
+    width: 48px;
+    height: 24px;
+    top: 0px;
+    right: 0px;
+    z-index:3;
+    display:none;
+    background-color: gray;
+}
+.toolbar_edit {
+    background:url(../img/edit_24.png);
+}
+.toolbar_delete {
+    background:url(../img/remove_24.png);
+}
+.toolbar_edit,.toolbar_delete{
+    width:24px;height:24px;float: left;
+}
